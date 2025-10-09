@@ -1,13 +1,14 @@
 # pywal-mpv-modernx
 An MPV OSC script based on [modernx](https://github.com/cyl0/ModernX) that uses the pywal colors as its scheme.
 
-![img](https://github.com/cyl0/ModernX/blob/main/preview.png)
+![img](preview.png)
 
 ## Installation
+> [!warning]
+> I have not tested this on windows and macos, also on windows `pywal` does not have specific way to be installed other than `pip` itself. Which means pywal's cache folder path is still not known.
+
 - __On windows__
 <br> Locate your MPV folder. It is typically located at `\%APPDATA%\mpv\`, then copy the contents in it.
-> [!warning]
-> I have no tested this on windows, and currently windows does not have specific ways to install `pywal` other than `pip` itself. Which means pywal's cache folder path is still not known.
 
 - __On Linux__
 Locate the `$HOME/.config` and put the contents of this file there and install [Material-Design-Iconic-Font.ttf](https://zavoloklom.github.io/material-design-iconic-font/) my copying it in the `$HOME/.fonts/` or if you have git installed then:
@@ -17,7 +18,7 @@ Locate the `$HOME/.config` and put the contents of this file there and install [
 ```
 
 - __Extras__
-<br>To enable thumbnails in timeline, install [thumbfast](https://github.com/po5/thumbfast). No other step necessary.
+<br>To enable thumbnails in timeline, install [thumbfast](https://github.com/po5/thumbfast). No other step necessary. And use the [thumbfast-support-dev](https://github.com/aKqir24/pywal-mpv-modernx/tree/thumbfast-support) branch to support thumbfast.
 
 ## Config
 edit `osc.conf` in "\~\~/script-opts/" folder, however many options are changed, so refer to the user_opts variable in the script file for details.
@@ -51,3 +52,4 @@ ___Playback time___
   
 ___Duration___
 - Left mouse button: display total time instead of remaining time
+<br>
