@@ -1,7 +1,7 @@
 -- modernx by cyl0
 -- https://github.com/cyl0/ModernX
 
--- fork by cyl0
+-- fork by aKqir24
 -- https://github.com/aKqir24/pywal-mpv-modernx
 
 local assdraw = require 'mp.assdraw'
@@ -2395,7 +2395,20 @@ function visibility_mode(mode, no_osd)
     end
 
 	user_opts.visibility = mode
-    utils.shared_script_property_set("osc-visibility", mode)
+	userdataAvail = (function()
+    local list = mp.get_property_native("property-list")
+    for k,v in ipairs(list) do
+        if (v == "user-data") then
+            return true
+        end
+    end
+    return false
+end)()
+	if userdataAvail then
+		mp.set_property_native("user-data/osc/visibility", mode)
+	else
+		utils.shared_script_property_set("user-data/osc/visibility", mode)
+	end
 
     if not no_osd and tonumber(mp.get_property('osd-level')) >= 1 then
         mp.osd_message('OSC visibility: ' .. mode)
