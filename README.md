@@ -4,19 +4,15 @@ An MPV OSC script based on [modernx](https://github.com/cyl0/ModernX) that uses 
 ![img](https://github.com/cyl0/ModernX/blob/main/preview.png)
 
 # How to install
+- __On windows__
+Locate your MPV folder. It is typically located at `\%APPDATA%\mpv\`, then copy the contents in it.
 
-Locate your MPV folder. It is typically located at `\%APPDATA%\mpv\` on Windows and `~/.config/mpv/` on Linux/MacOS. See the [Files section](https://mpv.io/manual/master/#files) in mpv's manual for more info.
-
-Put pywal-mpv-mordenx.lua into your mpv "\~\~/scripts/" folder. Create the "\~\~/scripts/" folder if you don't already have one and remove any other OSC scripts,
-then put `Material-Design-Iconic-Font.ttf` in the "\~\~/fonts" folder.
-
-in mpv.conf:
-
+- __On Linux__
+Locate the `$HOME/.config` and put the contents of this file there and install [Material-Design-Iconic-Font.ttf](https://zavoloklom.github.io/material-design-iconic-font/) my copying it in the `$HOME/.fonts` or if you have git installed then:
+```bash
+  git clone https://github.com/aKqir24/pywal-mpv-modernx.git $HOME/.config/
+  ln -sf ~/.config/mpv/Material-Design-Iconic-Font.ttf $HOME/.fonts/
 ```
-osc = no
-border = no # Optional, but recommended
-```
-`Material-Design-Iconic-Font.ttf` can also be downloaded from [here](https://zavoloklom.github.io/material-design-iconic-font/).
 
 # How to config
 
