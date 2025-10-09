@@ -17,7 +17,7 @@ Locate the `$HOME/.config` and put the contents of this file there and install [
 ```
 
 - __Extras__
-<br>To enable thumbnails in timeline, install [thumbfast](https://github.com/po5/thumbfast). No other step necessary. And use the [thumbfast-support-dev](https://github.com/aKqir24/pywal-mpv-modernx/tree/thumbfast-support-dev) branch to support thumbfast
+<br>To enable thumbnails in timeline, install [thumbfast](https://github.com/po5/thumbfast). No other step necessary. And use the [thumbfast-support-dev](https://github.com/aKqir24/pywal-mpv-modernx/tree/thumbfast-support-dev) branch to support thumbfast.
 
 ## Config
 edit `osc.conf` in "\~\~/script-opts/" folder, however many options are changed, so refer to the user_opts variable in the script file for details.
