@@ -7,9 +7,40 @@ local msg = require 'mp.msg'
 local opt = require 'mp.options'
 local utils = require 'mp.utils'
 
---
+-- Convert "#RRGGBB" to "&HBBGGRR&" for ASS color tags
+-- I know it is to much but pywal uses hex as colors instead of ASS
+local function hex_to_ass(hex)
+  if not hex or type(hex) ~= "string" then
+    print("[modernx] hex_to_ass() error: invalid hex input ->", tostring(hex))
+    return "&HFFFFFF&" -- fallback (white)
+  end
+
+  -- Remove '#' if it exists
+  hex = hex:gsub("#", "")
+
+  if #hex ~= 6 then
+    print("[modernx] hex_to_ass() warning: invalid length ->", hex)
+    return "&HFFFFFF&"
+  end
+
+  local r, g, b = hex:sub(1, 2), hex:sub(3, 4), hex:sub(5, 6)
+
+  return string.format("&H%s%s%s&", b, g, r)
+end
+
+-- Extract pywal_colors
+local filepath = os.getenv("HOME") .. "/.cache/wal/colors"
+local file = assert(io.open(filepath, "r"), 'Pywal' .. filepath .. ' file does not exist!!')
+local colors = {}
+for line in file:lines() do
+  -- Remove leading/trailing spaces
+  line = line:match("^%s*(.-)%s*$")
+  table.insert(colors, hex_to_ass(line))
+end
+
+file:close()
+
 -- Parameters
---
 -- default user option values
 -- may change them in osc.conf
 local user_opts = {
@@ -90,19 +121,19 @@ local osc_param = { -- calculated by osc_init()
 }
 
 local osc_styles = {
-    TransBg = '{\\blur100\\bord140\\1c&H000000&\\3c&H000000&}',
-    SeekbarBg = '{\\blur0\\bord0\\1c&HFFFFFF&}',
-    SeekbarFg = '{\\blur1\\bord1\\1c&HE39C42&}',
-    VolumebarBg = '{\\blur0\\bord0\\1c&H999999&}',
-    VolumebarFg = '{\\blur1\\bord1\\1c&HFFFFFF&}',
-    Ctrl1 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs36\\fnmaterial-design-iconic-font}',
-    Ctrl2 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs24\\fnmaterial-design-iconic-font}',
-    Ctrl3 = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&HFFFFFF&\\fs24\\fnmaterial-design-iconic-font}',
-    Time = '{\\blur0\\bord0\\1c&HFFFFFF&\\3c&H000000&\\fs17\\fn' .. user_opts.font .. '}',
-    Tooltip = '{\\blur1\\bord0.5\\1c&HFFFFFF&\\3c&H000000&\\fs18\\fn' .. user_opts.font .. '}',
-    Title = '{\\blur1\\bord0.5\\1c&HFFFFFF&\\3c&H0\\fs48\\q2\\fn' .. user_opts.font .. '}',
-    WinCtrl = '{\\blur1\\bord0.5\\1c&HFFFFFF&\\3c&H0\\fs20\\fnmpv-osd-symbols}',
-    elementDown = '{\\1c&H999999&}',
+    TransBg = '{\\blur100\\bord140\\1c' .. colors[1] .. '\\3c' .. colors[1] .. '}',
+    SeekbarBg = '{\\blur0\\bord0\\1c' .. colors[9] .. '}',
+    SeekbarFg = '{\\blur0\\bord1\\1c' .. colors[2] ..'}',
+    VolumebarBg = '{\\blur0\\bord0\\1c' .. colors[9] .. '}',
+    VolumebarFg = '{\\blur1\\bord1\\1c' .. colors[16] .. '}',
+    Ctrl1 = '{\\blur0\\bord0\\1c' .. colors[16] .. '\\3c' .. colors[8] .. '\\fs36\\fnmaterial-design-iconic-font}',
+    Ctrl2 = '{\\blur0\\bord0\\1c' .. colors[16] .. '\\3c' .. colors[8] .. '\\fs24\\fnmaterial-design-iconic-font}',
+    Ctrl3 = '{\\blur0\\bord0\\1c' .. colors[16] .. '\\3c' .. colors[9] .. '\\fs24\\fnmaterial-design-iconic-font}',
+    Time = '{\\blur0\\bord0\\1c' .. colors[16] .. '\\3c' .. colors[9] .. '\\fs17\\fn' .. user_opts.font .. '}',
+    Tooltip = '{\\blur1\\bord0.5\\1c' .. colors[16] .. '\\3c' .. colors[9] .. '\\fs18\\fn' .. user_opts.font .. '}',
+    Title = '{\\blur1\\bord0.5\\1c' .. colors[16] .. '\\3c&' .. colors[9] .. '\\fs48\\q2\\fn' .. user_opts.font .. '}',
+    WinCtrl = '{\\blur1\\bord0.5\\1c' .. colors[16] .. '\\3c&' .. colors[10] .. '\\fs20\\fnmpv-osd-symbols}',
+    elementDown = '{\\1c' .. colors[8] .. '}',
 }
 
 -- internal states, do not touch
