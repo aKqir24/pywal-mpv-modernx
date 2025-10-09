@@ -1,5 +1,5 @@
-# ModernX
-An MPV OSC script based on [mpv-osc-modern](https://github.com/maoiscat/mpv-osc-modern/) that aims to mirror the functionality of MPV's stock OSC while with a more modern-looking interface.
+# pywal-mpv-modernx
+An MPV OSC script based on [modernx](https://github.com/cyl0/ModernX) that uses the pywal colors as its scheme.
 
 ![img](https://github.com/cyl0/ModernX/blob/main/preview.png)
 
@@ -7,7 +7,7 @@ An MPV OSC script based on [mpv-osc-modern](https://github.com/maoiscat/mpv-osc-
 
 Locate your MPV folder. It is typically located at `\%APPDATA%\mpv\` on Windows and `~/.config/mpv/` on Linux/MacOS. See the [Files section](https://mpv.io/manual/master/#files) in mpv's manual for more info.
 
-Put mordenx.lua into your mpv "\~\~/scripts/" folder. Create the "\~\~/scripts/" folder if you don't already have one and remove any other OSC scripts,
+Put pywal-mpv-mordenx.lua into your mpv "\~\~/scripts/" folder. Create the "\~\~/scripts/" folder if you don't already have one and remove any other OSC scripts,
 then put `Material-Design-Iconic-Font.ttf` in the "\~\~/fonts" folder.
 
 in mpv.conf:
