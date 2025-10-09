@@ -6,6 +6,8 @@ An MPV OSC script based on [modernx](https://github.com/cyl0/ModernX) that uses 
 ## Installation
 - __On windows__
 <br> Locate your MPV folder. It is typically located at `\%APPDATA%\mpv\`, then copy the contents in it.
+> [!warning]
+> I have no tested this on windows, and currently windows does not have specific ways to install `pywal` other than `pip` itself. Which means pywal's cache folder path is still not known.
 
 - __On Linux__
 Locate the `$HOME/.config` and put the contents of this file there and install [Material-Design-Iconic-Font.ttf](https://zavoloklom.github.io/material-design-iconic-font/) my copying it in the `$HOME/.fonts/` or if you have git installed then:
