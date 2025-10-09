@@ -1,7 +1,7 @@
 # pywal-mpv-modernx
 An MPV OSC script based on [modernx](https://github.com/cyl0/ModernX) that uses the pywal colors as its scheme.
 
-![img](https://github.com/cyl0/ModernX/blob/main/preview.png)
+![img](preview.png)
 
 ## Installation
 - __On windows__
