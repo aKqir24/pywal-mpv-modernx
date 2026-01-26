@@ -11,14 +11,13 @@ An MPV OSC script based on [modernx](https://github.com/cyl0/ModernX) that uses 
 <br> Locate your MPV folder. It is typically located at `\%APPDATA%\mpv\`, then copy the contents in it.
 
 - __On Linux__
-Locate the `$HOME/.config` and put the contents of this file there and install [Material-Design-Iconic-Font.ttf](https://zavoloklom.github.io/material-design-iconic-font/) my copying it in the `$HOME/.fonts/` or if you have git installed then:
+<br> Just run this on your linux terminal:
 ```bash
-  git clone https://github.com/aKqir24/pywal-mpv-modernx.git $HOME/.config/
-  ln -sf ~/.config/mpv/Material-Design-Iconic-Font.ttf $HOME/.fonts/
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/aKqir24/pywal-mpv-modernx/refs/heads/main/install.sh)"
 ```
 
 - __Extras__
-<br>To enable thumbnails in timeline, install [thumbfast](https://github.com/po5/thumbfast). No other step necessary. And use the [thumbfast-support-dev](https://github.com/aKqir24/pywal-mpv-modernx/tree/thumbfast-support) branch to support thumbfast.
+<br>To enable thumbnails in timeline, install [thumbfast](https://github.com/po5/thumbfast). No other step necessary. And use the [thumbfast-support](https://github.com/aKqir24/pywal-mpv-modernx/tree/thumbfast-support) branch to support thumbfast. But if you used the script it will ask you enabled it or not. 
 
 ## Config
 edit `osc.conf` in "\~\~/script-opts/" folder, however many options are changed, so refer to the user_opts variable in the script file for details.
